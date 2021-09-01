@@ -1,16 +1,16 @@
-service:
-  type: ClusterIP
-
-image:
-  tag: 13
-
 fullnameOverride: postgresql
 
 global:
   postgresql:
     postgresqlDatabase: postgres
     postgresqlUsername: postgres
-    servicePort: 5432 \
+    servicePort: 5432
+
+image:
+  tag: 13
+
+initdbScripts:
+  init.sql: create database hive; create database ranger; create database insights; create database datacache;
 
 primary:
   nodeSelector:
@@ -20,5 +20,5 @@ readReplicas:
   nodeSelector:
     starburstpool: base
 
-initdbScripts:
-  init.sql: "create database hive; create database ranger; create database insights; create database datacache;"
+service:
+  type: ClusterIP
