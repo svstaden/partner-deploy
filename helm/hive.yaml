@@ -3,6 +3,7 @@ database:
     driver: org.postgresql.Driver
     jdbcUrl: jdbc:postgresql://postgresql:5432/hive
     user: postgres
+    password: password123
   type: external
 
 expose:
@@ -10,9 +11,6 @@ expose:
 
 image:
   repository: harbor.starburstdata.net/starburstdata/hive
-
-nodeSelector:
-  starburstpool: base
 
 objectStorage:
   gs:

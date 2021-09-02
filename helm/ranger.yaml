@@ -1,0 +1,38 @@
+admin:
+  resources:
+    limits:
+      cpu: 1
+      memory: 1Gi
+    requests:
+      cpu: 1
+      memory: 1Gi
+  serviceUser: 
+
+database:
+  external:
+    databaseName: ranger
+    databasePassword: password123
+    databaseRootPassword: password123
+    databaseRootUser: postgres
+    databaseUser: ranger
+    host: postgresql
+    port: 5432
+  type: external
+
+datasources:
+- host: coordinator
+  name: starburst-enterprise
+  password: 
+  port: 8080
+  username: 
+
+expose:
+  type: loadBalancer
+
+initFile: files/initFile.sh
+
+registryCredentials:
+  enabled: true
+  password: 
+  registry: harbor.starburstdata.net/starburstdata
+  username: 
