@@ -43,6 +43,18 @@ coordinator:
 
 expose:
   type: loadBalancer
+  ingress:
+    serviceName: starburst
+    servicePort: 8080
+    host: 
+    path: "/"
+    pathType: Prefix
+    tls:
+      enabled: true
+      secretName: tls-secret-starburst
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      cert-manager.io/cluster-issuer: letsencrypt
 
 registryCredentials:
   enabled: true
